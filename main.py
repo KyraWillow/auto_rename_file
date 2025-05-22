@@ -77,7 +77,52 @@ def rename_files():
 
 
 def guide_book():
-    pass
+    while True:
+        try:
+            print("1. Indonesian")
+            print("2. English")
+            print("3. Back to menu")
+            user = int(input("Select a menu [1, 2, 3]:"))
+
+            if user == 1:
+                print("""
+                GUIDE BOOK
+                1. Bacalah setiap output yang dikeluarkan oleh program agar tidak salah memasukkan input.
+                2. Pastikan sebelum menekan Enter, Anda sudah memeriksa apakah nama path sudah benar.
+                3. Jika terjadi error, saran saya adalah memindahkan folder yang ingin Anda ganti namanya ke lokasi yang sama dengan program ini.
+                4. Jangan khawatir, jika di dalam folder Anda terdapat folder lain, hal tersebut tidak akan mempengaruhi penggantian nama karena kode ini hanya untuk mengubah nama file.
+                5. Segala kesalahan bukan menjadi tanggung jawab kami. Dengan meng-clone repository ini, berarti Anda telah memahami dan mengetahui isi kode yang akan dijalankan.
+                """)
+                user = input("Back to main menu [y or n]: ").lower()
+                if user == "y":
+                    main()
+                elif user == "n":
+                    break
+                else:
+                    print("Please enter a valid input.")
+
+            elif user == 2:
+                print("""GUIDE BOOK
+                1. Please read every output shown by the program carefully to avoid incorrect inputs.
+                2. Before pressing Enter, make sure to verify that the path name is correct.
+                3. If an error occurs, I recommend moving the folder you want to rename to the same location as this program.
+                4. Don’t worry—if your folder contains subfolders, it won’t affect the renaming process since this code only renames files.
+                5. We are not responsible for any mistakes. By cloning this repository, you acknowledge that you understand and are aware of the code you are running.
+                """)
+                user = input("Back to main menu [y or n]: ").lower()
+                if user == "y":
+                    main()
+                elif user == "n":
+                    sys.exit(0)
+                else:
+                    print("Please enter a valid input.")
+            elif user == 3:
+                main()
+            else:
+                print("Please enter a valid input.")
+        except ValueError:
+            print("Invalid input, Please choose 1 or 2.")
+
 
 def main():
     user = get_user_input()
