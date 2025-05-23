@@ -9,7 +9,7 @@ A simple and efficient tool to batch rename files, written in Python. This tool 
 - 📂 Rename all files in a selected folder
 - ✍️ Customizable filename prefix
 - 🔢 Auto-incremented numbering
-- 🖥️ Fully terminal-based with an interactive menu interface
+- 🖥️ Fully terminal-based
 - 🧪 Basic input validation and error handling
 
 ---
