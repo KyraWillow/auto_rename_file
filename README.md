@@ -24,11 +24,11 @@ A simple and efficient tool to batch rename files, written in Python. This tool 
 
 ## 🐞 Known Issues / TODO
 
-- [ ] Program crashes when new and old filenames are identical (name conflict)
-- [ ] No input validation for file extensions
+- [x] Program crashes when new and old filenames are identical (name conflict)
+- [x] No input validation for file extensions
 - [ ] Undo functionality (restore original filenames) not yet implemented
 - [ ] Folder renaming is not supported yet
-- [ ] No option to skip specific files during renaming
+- [x] No option to skip specific files during renaming
 
 ---
 
