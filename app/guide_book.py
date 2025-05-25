@@ -1,6 +1,6 @@
-from app.menu_select import menu_select
+from app.menu_select import get_menu_choice
 
-def guide_book():
+def guide_book_ui():
     """
     Displays a guide book menu to help users understand how to use the program.
 
@@ -12,12 +12,12 @@ def guide_book():
     """
     options_guide_book = ["Indonesian", "English", "Back to menu"]
     while True:
-        print("Guide Book menu")
+        print("\nGuide Book menu")
         for i, opt in enumerate(options_guide_book):
             print(f"{i + 1}. {opt}")
 
         maxopt = len(options_guide_book)
-        user_input = menu_select(maxopt)
+        user_input = get_menu_choice("Select guide option: ", maxopt)
 
         if user_input == 1:
             print("""
@@ -28,9 +28,7 @@ def guide_book():
             4. Jangan khawatir, jika di dalam folder Anda terdapat folder lain, hal tersebut tidak akan mempengaruhi penggantian nama karena kode ini hanya untuk mengubah nama file.
             5. Segala kesalahan bukan menjadi tanggung jawab kami. Dengan meng-clone repository ini, berarti Anda telah memahami dan mengetahui isi kode yang akan dijalankan.
             """)
-            user = input("Press any key to exit: ").lower()
-            if user == True:
-                break
+            input("Press Enter to exit: ").lower()
 
         elif user_input == 2:
             print("""GUIDE BOOK
@@ -40,10 +38,7 @@ def guide_book():
             4. Don’t worry—if your folder contains subfolders, it won’t affect the renaming process since this code only renames files.
             5. We are not responsible for any mistakes. By cloning this repository, you acknowledge that you understand and are aware of the code you are running.
             """)
-            user = input("Press any key to exit: ").lower()
-            if user == True:
-                break
+            input("Press Enter to exit: ").lower()
+
         elif user_input == 3:
             return
-        else:
-            print("Please enter a valid input.")

@@ -1,49 +1,43 @@
-from app.rename_files import rename_files
-from app.guide_book import guide_book
-from app.menu_select import menu_select
+from app.menu_select import get_menu_choice
+from app.rename_files import rename_files_ui
+from app.guide_book import guide_book_ui
+
+def display_welcome_banner():
+    print("""
+╔══════════════════════════════════════════════════════════════════╗
+║                    AUTO RENAME FILES TOOL                        ║
+║                         Welcome User!                            ║
+╚══════════════════════════════════════════════════════════════════╝
+    """)
 
 # User input menu
 def main_menu():
     """
     Displays the main menu and handles user interaction.
 
-    This function shows a simple menu with three options:
-    1. Rename Files
-    2. Guide Books
-    3. Exit
-
-    Based on the user's choice:
-    - Option 1 calls the rename_files() function.
-    - Option 2 calls the guide_book() function.
-    - Option 3 exits the program.
-
-    The menu will keep looping until the user selects "Exit".
-    :return:
-        none.
+    This function shows a menu with options for renaming files,
+    accessing the guide book, using smart rename, or exiting.
+    It loops until the user chooses to exit.
     """
-    options_main_menu = ["Rename Files", "Guide Books", "Exit"]
+    options_main_menu = ["Rename Files", "Smart Rename Files (coming soon)", "Guide Books", "Exit"]
+
+    display_welcome_banner()
 
     while True:
-
-        print(""" █████  ██    ██ ████████  ██████      ██████  ███████ ███    ██  █████  ███    ███ ███████     ███████ ██ ██      ███████ ███████ 
-██   ██ ██    ██    ██    ██    ██     ██   ██ ██      ████   ██ ██   ██ ████  ████ ██          ██      ██ ██      ██      ██      
-███████ ██    ██    ██    ██    ██     ██████  █████   ██ ██  ██ ███████ ██ ████ ██ █████       █████   ██ ██      █████   ███████ 
-██   ██ ██    ██    ██    ██    ██     ██   ██ ██      ██  ██ ██ ██   ██ ██  ██  ██ ██          ██      ██ ██      ██           ██ 
-██   ██  ██████     ██     ██████      ██   ██ ███████ ██   ████ ██   ██ ██      ██ ███████     ██      ██ ███████ ███████ ███████ 
-                                                                                                                                   """)
-
-        print("Main Menu")
+        print("\nMain Menu")
         for i, opt in enumerate(options_main_menu):
             print(f"{i+1}. {opt}")
 
         maxopt = len(options_main_menu)
-        user_input = menu_select(maxopt)
+        user_input = get_menu_choice("Select options: ", maxopt)
 
         # Validations
         if user_input == 1:
-            rename_files()
+            rename_files_ui()
         elif user_input == 2:
-            guide_book()
+            pass
+        elif user_input == 3:
+            guide_book_ui()
         elif user_input == maxopt:
             print("Thank you, and goodbye!")
             break

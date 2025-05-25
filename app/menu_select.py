@@ -1,4 +1,4 @@
-def menu_select(maxopt):
+def get_menu_choice(promt: str, maxopt: int):
     """
     Prompts the user to select a menu option within a valid range.
 
@@ -13,10 +13,13 @@ def menu_select(maxopt):
     """
     while True:
         try:
-            user_input = int(input("Select options: "))
+            user_input_str = input(promt)
+            user_input = int(user_input_str)
             if 1 <= user_input <= maxopt:
                 return user_input
+            else:
+                print(f"Please enter a number between 1 and {maxopt}.")
         except ValueError:
-            pass
+            print("Invalid input. Please enter a number.")
 
         print("Please enter a valid input.")
