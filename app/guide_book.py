@@ -1,5 +1,6 @@
 from app.menu_select import get_menu_choice
 
+
 def guide_book_ui():
     """
     Displays a guide book menu to help users understand how to use the program.

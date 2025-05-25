@@ -41,8 +41,8 @@ def rename_files_ui():
         print(f"\nScanning folder: {directory.resolve()}")
 
         files_to_rename = []
-        for item in directory.iterdir(): # -> .iterdir() to access all contents (file)
-                files_to_rename.append(item)
+        for item in directory.iterdir():  # -> .iterdir() to access all contents (file)
+            files_to_rename.append(item)
 
         if not file_name_base:
             print(f"No files found in '{directory}'.")
@@ -52,7 +52,8 @@ def rename_files_ui():
 
         for i, old_file_name in enumerate(files_to_rename):
             original_extension = old_file_name.suffix
-            safe_file_name_base = "".join(c if c.isalnum() or c in ['-', '_', ' '] else '_' for c in file_name_base).strip()
+            safe_file_name_base = "".join(
+                c if c.isalnum() or c in ['-', '_', ' '] else '_' for c in file_name_base).strip()
             if not safe_file_name_base:
                 safe_file_name_base = "renamed_file"
 
@@ -68,7 +69,8 @@ def rename_files_ui():
 
             # Case 2: A new name already exists as another file
             if new_file_path.exists():
-                print(f"Error: Target name '{new_filename_str}' already exists in the directory. Skipping '{old_file_name.name}'.")
+                print(
+                    f"Error: Target name '{new_filename_str}' already exists in the directory. Skipping '{old_file_name.name}'.")
                 skipped_count += 1
                 continue
 
